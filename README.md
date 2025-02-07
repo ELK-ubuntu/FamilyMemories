@@ -1,7 +1,46 @@
-# FamilyMemories
+# Family-Trip-Memories
+
+<br>
+
+## 🚀 프로젝트 목표
 
 
-## 서비스 고객층 예상 변화
+### - 기술 목표
+- Servlet 및 JSP 기반 Web Application 개발
+- Session을 통한 사용자 인증 및 상태 관리
+- DataBase 연동으로 동적 데이터 처리
+
+<br>
+
+### - 서비스 목표
+- 60대 연령층을 대상으로 한 맞춤 서비스
+- 수익 창출을 위한 비지니스 모델 구현
+
+<br>
+
+## 📚 프로젝트 소개
+
+
+### - 가족여행 기록 및 플랜 추천 애플리케이션
+
+- 지도 API 기반 여행지 탐색 기능 구현
+- 여행 기록 포스팅(사진 업로드 및 게시글 작성)
+- ElasticSearch 기반 인기 여행지 분석 및 연관 검색어 추천 시스템 구축 (아이디어)
+
+<br>
+
+### - 기술 스택 및 구조
+| <span style="color:#FF5733">Back-end</span>                                                                                                   | <span style="color:#FF5733">Front-end</span>                        | <span style="color:#FF5733">Database 연동</span>                                                         |
+|------------------------------------------------------------------------------------------------------------|----------------------------------|----------------------------------------------------------------------|
+| ▪ Servlet : 클라이언트 요청 처리 및 비즈니스 로직 수행 <br>  ▪ Java 클래스 : 데이터 처리 및 공통 유틸 제공  | ▪ HTML + JSP : UI 구현 및 데이터 바인딩 | ▪ MySQL : 사용자 및 게시글 데이터 관리 <br> ▪ DBConnection 클래스 : 연결 관리 |
+| ▪ MVC 패턴 <br> - Model : DB 연동 및 비즈니스 로직 <br> - View : JSP 활용 <br> - Controller : 서블릿 | HTML, JSP                      | MySQL, DataSource, DBeaver                                                    |
+| 비즈니스 로직 처리 및 View 연결                                      | 사용자와 데이터 상호작용            | DB 연결, 쿼리 실행                                                   |
+
+
+
+<br>
+
+## 예상되는 서비스 고객층 변화
 
 ### 1. 20~30대 자식들을 통해 홍보 및 유입 시도. 50~60대 부모 세대의 서비스 참여
 
@@ -24,3 +63,23 @@
 
 
 ### 3. 추가적인 가족 단위의 유입을 통한 서비스 개선 및 통합 가족 서비스로 진화
+
+
+
+
+
+## Trouble Shooting
+include UTF-8 깨짐 현상
+
+window 객체 내 kakao 변수
+
+현재 콘솔에서 Failed to execute 'write' on 'Document' 라는 오류가 발생하는 이유는:
+
+비동기로 로드 (async defer) 된 카카오 API가 내부적으로 document.write()를 실행
+비동기 스크립트에서는 document.write()가 차단됨 → 크롬 최신 버전에서 오류 발생
+카카오 API가 정상적으로 로드되지 않아 window.kakao.maps가 undefined 상태로 남음
+🔥 해결 방법
+✅ 해결 방법 1: async defer 제거 후 onload 이벤트로 실행
+✅ 해결 방법 2: kakao.maps.load()를 사용하여 API가 로드된 후 실행
+✅ 해결 방법 3: API 호출 방식을 setTimeout에서 MutationObserver 기반으로 변경하여 불필요한 반복 제거
+
