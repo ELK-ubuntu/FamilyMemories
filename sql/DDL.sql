@@ -3,7 +3,7 @@
 Create Table User(
 	uid int primary key auto_increment,
 	name varchar(20),
-	id int,
+	id varchar(30),
 	pw varchar(100),
 	email varchar(100),
 	fid int,
