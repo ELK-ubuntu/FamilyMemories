@@ -15,7 +15,7 @@
 ### ▸ 여가錄
 
 - **여가錄**은 여행, 가족, 기록의 줄임말이며 **가족과 함께 소중한 여행의 추억을 기록하고 가족과 공유하는 서비스**입니다.
-- 해당 서비스는 특히 **60대 이상 연령층이 가족 여행의 추억을 기록할 수 있는 서비스가 부족한 현실**을 고려하여 **가족과의 여행을 더욱 쉽고 편리하게 남기고 공유**할 수 있도록 하고자 시작되었습니다.
+- 해당 서비스는 특히 **60대 이상 연령층이 가족 여행의 추억을 기록할 수 있는 서비스가 부족한 현실**을 고려하여 **가족과 함께한 여행 순간을 쉽고 편리하게 남기고 공유**할 수 있도록 하고자 시작되었습니다.
 <br>
 
 ### ▸ 기술 목표
@@ -95,7 +95,7 @@
 ![login](https://github.com/user-attachments/assets/2350c813-4ab8-4ce4-96b3-316d836c5754)
 
 
-+ **ID와 PW**를 정확하게 입력하면 로그인시 창이 **main 페이지로으로 넘어갑니다**.
++ **ID와 PW**를 정확하게 입력하면 로그인시 창이 **main 페이지로 넘어갑니다**.
 
 <br>
 
@@ -139,12 +139,9 @@
 
 #### 6. 추천 여행지(아이디어)
 
-![AIrecommend](https://github.com/user-attachments/assets/15fd117f-d17c-4f31-9583-9193c8b19812)
+![recommend](https://github.com/user-attachments/assets/095a7e9a-01fe-4dd7-b72f-0367ec16722b)
 
-+ AI를 이용해 여행지들을 추천해주고, 해당 여행지의 맛집, 유명한 명소, 숙소를 추천한 뒤 효율적인 플랜을 짜준후 사용자에게 제공합니다. 
-+ 해당 날짜에 열리는 축제와 공연 정보 등을 알려줍니다.<br>
-
-참고자료 : [Visit Busan 공식 홈페이지](https://www.visitbusan.net/kr/index.do)
++ ELK를 활용해서 DB에 저장된 포스팅 글을 분석하고 연관 단어나 추천 키워드를 제시
 
 <br>
 
@@ -501,6 +498,7 @@ request.getRequestDispatcher("/views/jsp/mypage.jsp").forward(request, response)
 ```
 
 <br>
+
 - servlet 6버전에 맞는 File 전달 방식을 사용. getPart를 통해 파일 물리 정보를 받아옴.
 
 
