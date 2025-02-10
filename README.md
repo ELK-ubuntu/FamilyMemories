@@ -27,7 +27,6 @@
 
 
 ### ▸ 서비스 목표
->>>>>>> aea34e2 (README 업데이트 및 images 폴더 추가)
 - 60대 연령층을 대상으로 한 맞춤 서비스
 - 수익 창출을 위한 비지니스 모델 구현
 
@@ -483,7 +482,6 @@ request.getRequestDispatcher("/views/jsp/mypage.jsp").forward(request, response)
 - 현재 servlet은 6 버전으로 이전 lib와 호환이 되지 않음을 짐작함
 
 <br>
->>>>>>> aea34e2 (README 업데이트 및 images 폴더 추가)
 
 ```
  File uploadDir = new File(uploadPath);
@@ -504,7 +502,7 @@ request.getRequestDispatcher("/views/jsp/mypage.jsp").forward(request, response)
 ```
 
 <br>
-servlet 6버전에 맞는 File 전달 방식을 사용. getPart를 통해 파일 물리 정보를 받아옴.
+- servlet 6버전에 맞는 File 전달 방식을 사용. getPart를 통해 파일 물리 정보를 받아옴.
 
 
 ```
