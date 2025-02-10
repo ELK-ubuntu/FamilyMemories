@@ -6,16 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import domain.Post;
+import domain.Scheduler;
 import utils.DBConnection;
 
-public class MainRepository {
+public class SchedulerRepository {
 
-    //가족에 속한 모든 게시글 조회
-    public static List<Post> getPostsByFamilyId(int fid) {
-        List<Post> postList = new ArrayList<>();
-        String sql = "SELECT * FROM Post WHERE fid = ? ORDER BY start_date DESC";
+    // 가족 ID에 속한 모든 일정 가져오기
+    public static List<Scheduler> getSchedulesByFamilyId(int fid) {
+        List<Scheduler> scheduleList = new ArrayList<>();
+        String sql = "SELECT * FROM Scheduler WHERE fid = ? ORDER BY start_date";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -24,21 +23,20 @@ public class MainRepository {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Post post = new Post(
-                        rs.getInt("pid"),
+                Scheduler schedule = new Scheduler(
+                        rs.getInt("sid"),
                         rs.getString("title"),
-                        rs.getString("description"),
                         rs.getDate("start_date"),
                         rs.getDate("end_date"),
                         rs.getString("location"),
-                        rs.getString("imgsrc"),
-                        rs.getInt("fid")
+                        rs.getInt("fid"),
+                        rs.getInt("uid")
                 );
-                postList.add(post);
+                scheduleList.add(schedule);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return postList;
+        return scheduleList;
     }
 }
